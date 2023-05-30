@@ -1,0 +1,8 @@
+[submodule "wiki-docs"]
+	path = wiki-docs
+	url = https://github.com/TheStarport/KnowledgeBase
+	branch = master
+[submodule "blogs"]
+	path = blogs
+	url = https://github.com/TheStarport/StarportBlog
+	branch = master
