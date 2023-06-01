@@ -135,6 +135,7 @@ button {
 
 .main-wrapper {
     background-color: $background-color_3;
+    overflow-y:unset;
 }
 
 .navbar {
@@ -222,4 +223,13 @@ button {
 ::-webkit-scrollbar {
     width: 10px;
     height: 90%;
+}
+
+.container {
+    overflow-y: scroll;
+    height: 93vh;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 10%;
+    padding-right: 5%;
 }
