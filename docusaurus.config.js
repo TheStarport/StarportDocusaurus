@@ -71,13 +71,13 @@ const config = {
         title: 'The Starport',
         items: [
           {
-             to: '/blog',
+             to: 'blog.the-starport.net/blog',
              target: '_self', 
              label: 'Blog', 
              position: 'left'
           },
           {
-            to: '/wiki',
+            to: 'wiki.the-starport.net/wiki',
             target: '_self', 
             label: 'Wiki', 
             position: 'left'
