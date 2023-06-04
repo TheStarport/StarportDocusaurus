@@ -44,9 +44,9 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/TheStarport/KnowledgeBase/tree/master',
+          editUrl: (params) => 'https://github.com/TheStarport/KnowledgeBase/tree/master/docs/' + params.docPath,
           routeBasePath: '/wiki',
-          path: './wiki-docs'
+          path: './wiki-docs/docs'
         },
         blog: {
           showReadingTime: true,
