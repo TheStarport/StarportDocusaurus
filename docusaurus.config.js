@@ -107,8 +107,7 @@ const config = {
         respectPrefersColorScheme: false,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require("prism-react-renderer/themes/vsDark"),
         additionalLanguages: ['ini', 'mermaid', 'cpp', 'csharp', 'pascal', 'maxscript', 'markdown', 'lua']
       },
       algolia: {
