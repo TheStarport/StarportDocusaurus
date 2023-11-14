@@ -20,7 +20,7 @@ const BuildTable = ({ module }) => (
 						<td>{x.moduleName.toLowerCase()}</td>
 						<td>{x.offset.slice(2).replace(/^0+/, '').toLowerCase()}</td>
 						<td>{x.author}</td>
-						<td>{x.dateAdded == 1699822800 ? "N/A" : new Date(x.dateAdded).toISOString()}</td>
+						<td>{new Date(x.dateAdded * 1000).toISOString()}</td>
 						<td>{x.description}</td>
 					</tr>
 				))}
