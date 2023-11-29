@@ -71,19 +71,19 @@ const config = {
         title: 'The Starport',
         items: [
           {
-             to: 'https://blog.the-starport.net/blog',
+             to: 'https://the-starport.com/blog',
              target: '_self', 
              label: 'Blog', 
              position: 'left'
           },
           {
-            to: 'https://wiki.the-starport.net/wiki',
+            to: 'https://the-starport.com/wiki',
             target: '_self', 
             label: 'Wiki', 
             position: 'left'
           },
           {
-            to: 'https://the-starport.net/freelancer/forum/',
+            to: 'https://the-starport.com/forums/',
             target: '_self', 
             label: 'Forum', 
             position: 'left'
