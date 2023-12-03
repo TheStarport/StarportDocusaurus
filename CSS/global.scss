@@ -156,6 +156,11 @@ button {
     font-size: 28px;
     padding-left: 15px;
     padding-right: 15px;
+    font-weight: normal;
+}
+
+navbar__brand:hover {
+    text-decoration: underline;
 }
 
 .navbar__link {
