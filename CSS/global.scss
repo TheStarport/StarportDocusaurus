@@ -11,7 +11,6 @@
     --ifm-table-cell-padding: 0.35rem;
     --ifm-scrollbar-thumb-background-color: black;
     --ifm-scrollbar-track-background-color: black;
-    --ifm-container-width-xl: 100%;
     --ifm-navbar-height: 59px;
 }
 
@@ -28,7 +27,6 @@
     --ifm-breadcrumb-color-active: #a1ecfb;
     --ifm-scrollbar-thumb-background-color: black;
     --ifm-scrollbar-track-background-color: black;
-    --ifm-container-width-xl: 100%;
 }
 
 $color_1: #26dafd;
@@ -78,6 +76,10 @@ html {
     background-attachment: fixed;
     margin: 0;
     height: 100%;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.6)
 }
 
 p {
@@ -135,7 +137,7 @@ button {
 }
 
 .main-wrapper {
-    background-color: $background-color_3;
+    background-color: rgba(0,0,0,.4784313725);
     overflow-y:unset;
 }
 
@@ -238,10 +240,7 @@ button {
 .container {
     overflow-y: scroll;
     height: 93vh;
-    margin-right: 0px;
-    margin-left: 0px;
-    padding-left: 10%;
-    padding-right: 5%;
+    
 }
 
 button.clean-btn{
@@ -250,7 +249,7 @@ button.clean-btn{
 
 // Header layout changes
 
-.navbar__inner {
+.navbar__inner, .main-wrapper {
     margin-right: auto;
     margin-left: auto;
     --bs-gutter-x: 1.5rem;
@@ -260,31 +259,35 @@ button.clean-btn{
 }
 
 @media (min-width: 576px) {
-    .navbar__inner {
+    .navbar__inner, .main-wrapper {
         max-width:540px
     }
 }
 
 @media (min-width: 768px) {
-    .navbar__inner {
+    .navbar__inner, .main-wrapper {
         max-width:720px
+    }
+    .container {
+        padding-right: 1.5rem!important;
+        padding-left: 1.5rem!important;
     }
 }
 
 @media (min-width: 992px) {
-    .navbar__inner {
+    .navbar__inner, .main-wrapper {
         max-width:960px
     }
 }
 
 @media (min-width: 1200px) {
-    .navbar__inner {
+    .navbar__inner, .main-wrapper {
         max-width:1140px
     }
 }
 
 @media (min-width: 1400px) {
-    .navbar__inner {
+    .navbar__inner, .main-wrapper {
         max-width:1320px
     }
 }
