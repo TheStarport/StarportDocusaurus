@@ -12,6 +12,7 @@
     --ifm-scrollbar-thumb-background-color: black;
     --ifm-scrollbar-track-background-color: black;
     --ifm-container-width-xl: 100%;
+    --ifm-navbar-height: 59px;
 }
 
 [data-theme='dark'] {
@@ -140,11 +141,15 @@ button {
 
 .navbar {
     background-color: $background-color_5;
-    border-bottom-color: $border-bottom-color_1;
+    border-bottom-color: $border-color_1;
     border-bottom-style: solid;
-    border-bottom-width: 4px;
-    padding-bottom: 55px;
+    border-bottom-width: 0.8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
     position: relative;
+    display: block;
 }
 
 .navbar__title {
@@ -157,10 +162,12 @@ button {
     padding-left: 15px;
     padding-right: 15px;
     font-weight: normal;
+    line-height: 42px;
 }
 
-navbar__brand:hover {
+.navbar__brand:hover {
     text-decoration: underline;
+    color: $color_3;
 }
 
 .navbar__link {
@@ -177,8 +184,6 @@ navbar__brand:hover {
     color: $color_3;
     text-shadow: rgba(172, 249, 251, 0.65) 0 0 4px;
     font-size: 21px;
-    padding-left: 15px;
-    padding-right: 15px;
 
     .clean-btn {
         display: none;
@@ -242,3 +247,44 @@ navbar__brand:hover {
 button.clean-btn{
     display:none;
   }
+
+// Header layout changes
+
+.navbar__inner {
+    margin-right: auto;
+    margin-left: auto;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
+@media (min-width: 576px) {
+    .navbar__inner {
+        max-width:540px
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar__inner {
+        max-width:720px
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar__inner {
+        max-width:960px
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar__inner {
+        max-width:1140px
+    }
+}
+
+@media (min-width: 1400px) {
+    .navbar__inner {
+        max-width:1320px
+    }
+}
