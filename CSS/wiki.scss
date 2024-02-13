@@ -1,41 +1,40 @@
 .docs-wrapper {
-
-  .DocSearch-Hit[aria-selected=true] {
+  .DocSearch-Hit[aria-selected="true"] {
     a {
       background-color: $background-color_2 !important;
     }
   }
-  
+
   .menu {
     background-color: $background-color_4;
     height: 100vh;
   }
-  
+
   .div_Toggle {
     display: none;
   }
-  
+
   .table-of-contents {
     border-color: $border-color_2;
     position: fixed;
   }
-  
+
   .table-of-contents__link--active {
     color: $color_3;
   }
-  
+
   .table-of-contents.a {
     &:hover {
       color: $color_3;
     }
   }
-  
+
   .pagination-nav__link {
     border-color: $border-color_2;
     border-style: solid;
     border-radius: 0;
     border-width: 1px;
-  
+
     &:hover {
       border-color: $border-color_3;
       text-decoration: none;
@@ -43,17 +42,22 @@
       box-shadow: 0 0 4px rgba(75, 242, 246, 0.65);
     }
   }
-    
+
   .navigation-with-keyboard {
     overflow-y: hidden !important;
   }
-  
+
   body[class=""] {
     overflow-y: hidden !important;
   }
 
-  .col{
+  .col {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
   }
+
+  main {
+    overflow-y: scroll;
+    height: 93vh;
   }
+}
