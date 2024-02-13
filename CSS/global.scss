@@ -165,6 +165,7 @@ button {
     padding-right: 15px;
     font-weight: normal;
     line-height: 42px;
+    margin: 0;
 }
 
 .navbar__brand:hover {
@@ -190,6 +191,11 @@ button {
     .clean-btn {
         display: none;
     }
+}
+
+.navbar__items a {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 ::-webkit-scrollbar-track {
@@ -290,4 +296,13 @@ button.clean-btn{
     .navbar__inner, .main-wrapper {
         max-width:1320px
     }
+}
+
+/* Tooltips */
+.starport-tooltip {
+    font-size: 0.875rem !important;
+    padding: 0 !important;
+    color: #acf9fb !important;
+    background-color: #000 !important;
+    padding: 0.25rem 0.5rem !important;
 }

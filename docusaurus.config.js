@@ -1,10 +1,18 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { 
+  faList, faInbox, faClock, 
+  faUser, faUsers, faDownload, 
+  faNewspaper, faBookOpen
+} = require('@fortawesome/free-solid-svg-icons');
+
+const {
+  faGithub, faDiscord
+} = require('@fortawesome/free-brands-svg-icons');
 
 /** @type {import('@docusaurus/types').Config} */
+
 const config = {
   title: 'The Starport',
   tagline: 'A collection of all knowledge amassed for the Space Game',
@@ -71,33 +79,74 @@ const config = {
         title: 'The Starport',
         items: [
           {
-             to: 'https://the-starport.com/blog',
-             target: '_self', 
-             label: 'Blog', 
-             position: 'left'
-          },
-          {
-            to: 'https://the-starport.com/wiki',
-            target: '_self', 
-            label: 'Wiki', 
-            position: 'left'
-          },
-          {
-            to: 'https://the-starport.com/forums/',
-            target: '_self', 
-            label: 'Forum', 
-            position: 'left'
-          },
-          {
-            to: 'https://discord.gg/tnrm4CB', 
-            label: 'Discord', 
+            to: 'https://the-starport.com/forums/categories',
+            target: '_self',
+            label: 'Categories',
             position: 'left',
-            
+            faIcon: faList
           },
           {
-            to: 'https://github.com/TheStarport', 
-            label: 'The Forge', 
-            position: 'left'
+            to: 'https://the-starport.com/forums/unread',
+            target: '_self',
+            label: 'Unread',
+            position: 'left',
+            faIcon: faInbox
+          },
+          {
+            to: 'https://the-starport.com/forums/recent',
+            target: '_self',
+            label: 'Recent',
+            position: 'left',
+            faIcon: faClock
+          },
+          {
+            to: 'https://the-starport.com/forums/users',
+            target: '_self',
+            label: 'Users',
+            position: 'left',
+            faIcon: faUser
+          },
+          {
+            to: 'https://the-starport.com/forums/groups',
+            target: '_self',
+            label: 'Groups',
+            position: 'left',
+            faIcon: faUsers
+          },
+          {
+            to: 'https://the-starport.com/forums/downloads',
+            target: '_self',
+            label: 'Download Archive',
+            position: 'left',
+            faIcon: faDownload
+          },
+          {
+            to: 'https://the-starport.com/blog',
+            target: '_self',
+            label: 'Starport Blog',
+            position: 'left',
+            faIcon: faNewspaper
+          },
+          {
+            to: 'https://the-starport.com/wiki/',
+            target: '_self',
+            label: 'Knowledge Base',
+            position: 'left',
+            faIcon: faBookOpen
+          },
+          {
+            to: 'https://github.com/TheStarport',
+            target: '_self',
+            label: 'The Forge',
+            position: 'left',
+            faIcon: faGithub
+          },
+          {
+            to: 'https://the-starport.com/discord',
+            target: '_self',
+            label: 'Discord',
+            position: 'left',
+            faIcon: faDiscord
           }
         ],
       },
