@@ -2,7 +2,7 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const { 
-  faList, faInbox, faClock, 
+  faList, faInbox,
   faUser, faUsers, faDownload, 
   faNewspaper, faBookOpen
 } = require('@fortawesome/free-solid-svg-icons');
@@ -10,6 +10,10 @@ const {
 const {
   faGithub, faDiscord
 } = require('@fortawesome/free-brands-svg-icons');
+
+const {
+  faClock
+} = require('@fortawesome/free-regular-svg-icons');
 
 /** @type {import('@docusaurus/types').Config} */
 
