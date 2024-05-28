@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import lb from '/payloads/limit-breaking.json';
 import DataTable from './DataTable';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Checkbox from './Checkbox';
 
 let hackyIndex = 0;
 
@@ -40,31 +41,40 @@ const columns = [
     header: "Date Added",
     accessorKey: "dateAdded",
     cell: ({ row: { original } }) => {
-      if ('dateAdded' in original) {
-        return <span>{new Date(original.dateAdded * 1000).toISOString()}</span>
+      let ret = <span>
+          {
+            original.dateAdded 
+              ? new Date(original.dateAdded * 1000).toLocaleDateString() 
+              : "Date Unknown"
+          }
+        </span>;
+
+      if ('url' in original) {
+        ret = <a href={original.url} target="_blank">{ret}</a>;
       }
-      return <span>Date Unknown</span>
+
+      return ret;
     }
   }
 ];
 
-export default () => {
-  const allTables = [];
-  const labels = [{
-    label: "All",
-    value: 'all'
-  }];
+const allData = [];
+const possibleFilters = [];
 
-  const categories = {};
-
-  const data = [];
+const restructureData = () => {
   lb.map(obj => {
     // Add category types
-    obj.categories.map(category => {
-      if (!(category in categories)) {
-        categories[category] = [];
-      };
-    });
+    obj.categories = obj.categories.map(category => {
+      return category.toLowerCase().split(',').map(x => {
+        x = x.trim();
+        if (!possibleFilters.includes(x))
+        {
+          possibleFilters.push(x); 
+        }
+
+        return x;
+      });
+    }).flat(Infinity);
 
     const newObj = obj.offset.reduce((accumulator, currentValue, index) => {
       if (index) {
@@ -95,25 +105,45 @@ export default () => {
       offset: "",
     });
 
-    data.push(newObj);
+    allData.push(newObj);
   });
+}
 
-  const tabs = Object.keys(categories).map(key => {
-    const objs = data.filter(x => x.categories.includes(key));
+export default () => {
+  if (allData.length === 0) {
+    restructureData();
+  }
 
-    var table = <>
-        <h2>{key}</h2>
-        <DataTable columns={columns} data={objs} />
-      </>;
-    allTables.push(table);
+  const [state, setState] = useState({ table: allData, activeFilters: []});
 
-    labels.push({ label: key, value: key });
+  const onFilterChange = (filter, el) => {
+    let newFilters = [];
 
-    return <TabItem key={key} value={key}>{table}</TabItem>;
-  });
+    // Adding a filter
+    if (el.checked) {
+      newFilters = [...state.activeFilters, filter];
+    } else {
+      newFilters = state.activeFilters.filter(x => x !== filter);
+    }
 
-  const all = <TabItem key="all" value="all">{allTables}
-  </TabItem>;
+    if (newFilters.length === 0) {
+      setState({ activeFilters: newFilters, table: allData });
+    }
+    else {
+      setState({ activeFilters: newFilters, table: allData.filter(x => x.categories.some(r => newFilters.includes(r))) });
+    }
+  }
 
-  return <Tabs className="flex-wrap" defaultValue="all" values={labels}>{tabs.concat(all)}</Tabs>
+  return <div>
+    <h2>Filters</h2>
+    <div className="row" style={{ margin: 0 }}>
+      {possibleFilters.map(filter => (
+        <div key={filter} style={{flex: "0 0 25%"}}>
+          <Checkbox label={filter} checked={state.activeFilters.includes(filter)} onChange={(el) => onFilterChange(filter, el.target)}/>
+        </div>
+      ))}
+    </div>
+    <br/>
+    <DataTable columns={columns} data={state.table} />
+  </div>;
 };
