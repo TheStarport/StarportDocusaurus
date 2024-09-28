@@ -1,6 +1,5 @@
 # KnowledgeBase
-A collection of all knowledge amassed for the Space Game
-TODO: write a readme
+This is the implementation code for the [Starport Blog](https://github.com/TheStarport/StarportBlog) and the [Starport KnowledgeBase](https://github.com/TheStarport/KnowledgeBase).
 
 ### Installation
 
